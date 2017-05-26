@@ -16,15 +16,18 @@
     anchorToPoint: false,
     appendToBody: false,
     class: undefined,
-    pointClass: 'ct-point'
+    pointClass: 'ct-point',
+    tooltipBetweenPoints: false
   };
 
   Chartist.plugins = Chartist.plugins || {};
   Chartist.plugins.tooltip = function (options) {
     options = Chartist.extend({}, defaultOptions, options);
-
+    console.log('coucou chartist-tooltip')
     return function tooltip(chart) {
-      var tooltipSelector = options.pointClass;
+      console.log('coucou chartist-tooltip2')
+      console.log(options.tooltipBetweenPoints)
+      var tooltipSelector = options.tooltipBetweenPoints ? options.pointClass : 'ct-series';
       if (chart.constructor.name == Chartist.Bar.prototype.constructor.name) {
         tooltipSelector = 'ct-bar';
       } else if (chart.constructor.name ==  Chartist.Pie.prototype.constructor.name) {
@@ -60,6 +63,7 @@
       }
 
       on('mouseover', tooltipSelector, function (event) {
+        console.log(event.target)
         var $point = event.target;
         var tooltipText = '';
 
