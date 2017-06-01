@@ -1,5 +1,5 @@
-$chart-tooltip-bg: #F4C63D;
-$chart-tooltip-color: #453D3F;
+$chart-tooltip-bg: #ced7db;
+$chart-tooltip-color: #6f6265;
 .chartist-tooltip {
   position: absolute;
   display: inline-block;
@@ -9,25 +9,17 @@ $chart-tooltip-color: #453D3F;
   background: $chart-tooltip-bg;
   color: $chart-tooltip-color;
   font-family: Oxygen,Helvetica,Arial,sans-serif;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 13px;
   text-align: center;
   pointer-events: none;
-  z-index: 1;
+  z-index: 10000;
+  white-space: nowrap;
   -webkit-transition: opacity .2s linear;
   -moz-transition: opacity .2s linear;
   -o-transition: opacity .2s linear;
   transition: opacity .2s linear;
-  &:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    margin-left: -15px;
-    border: 15px solid transparent;
-    border-top-color: $chart-tooltip-bg;
-  }
+
   &.tooltip-show {
     opacity: 1;
   }
